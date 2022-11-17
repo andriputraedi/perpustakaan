@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Utama</title>
+    <!-- CSS 1-->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <!-- Akhir dari CSS 1-->
+    <!--CSS BOOTSTRAP-->
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap/bootstrap.css' %}">
+</head>
+<body>
+    <!-- Banner-->
+    <img id="banner" src= "{% static 'img/crud.jpg' %}" alt="">
+    <div id="menu">
+        <!--Menu-->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/buku/">Data buku</a> </li>
+            <li><a href="/tamu/">Buku Tamu</a> </li>
+        </ul>
+    </div>
+    <!-- CONTAINER BOOTSTRAP-->
+    <div class="container">
+        <br>
+        {% for tampungpost in TampungPostingan %}
+            <h3>{{tampungpost.judul}}</h3>
+            <p>{{tampungpost.sinopsis}}</p>
+            <div class="alert alert-success" role="alert">
+                Kategori : {{tampungpost.kategori}}
+            </div>
+        {% endfor %}  
+        <br>
+
+    </div>    
+    <!-- Container BOOTSTRAP -->
+    
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<span class="text-dark">Copyright 2022</span>
+</div>
+</footer>
+
+    <!--JS BOOTSTRAP-->
+    <script src="{% static 'vendor/bootstrap/bootstrap.js' %}" type="text/javascripts"></script>
+    <script src="{% static 'vendor/bootstrap/jquery-3.3.1.slim.min.js' %}" type="text/javascripts"></script>
+    <script src="{% static 'vendor/bootstrap/popper.min.js' %}" type="text/javascripts"></script>
+
+
+</body>
+</html>
